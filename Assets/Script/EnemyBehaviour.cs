@@ -51,7 +51,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            Application.LoadLevel("MainScene");
+            if (followingPlayer)
+            {
+                Application.LoadLevel("MainScene");
+            }
         }
     }
 }

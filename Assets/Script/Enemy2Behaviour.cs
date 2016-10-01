@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy2Behaviour : MonoBehaviour
 {
     public GameObject player;
+    Quaternion rotation;
     public bool followingPlayer;
     float time;
 	void Start ()
@@ -16,6 +17,9 @@ public class Enemy2Behaviour : MonoBehaviour
         if(followingPlayer)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
+            rotation = Quaternion.LookRotation(player.transform.position);
+            rotation = new Quaternion(0f, 0f, rotation.z, rotation.w);
+            this.transform.rotation = rotation;
         }
         else
         {
@@ -29,9 +33,16 @@ public class Enemy2Behaviour : MonoBehaviour
 	}
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Player")
+        if (col.gameObject.tag == "Player" && followingPlayer)
         {
             Application.LoadLevel("MainScene");
+        }
+    }
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Player" && !followingPlayer && Input.GetKey(KeyCode.Return))
+        {
+            player.GetComponent<PlayerBehaviour>().copClothes();
         }
     }
 }

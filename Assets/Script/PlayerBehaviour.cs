@@ -5,6 +5,8 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public float speed;
     public bool holdingKey;
+    public bool wearingCopClothes = false;
+    public RuntimeAnimatorController animController;
     float movementHorizontal;
     float movementVertical;
     Vector3 mousePosition;
@@ -12,15 +14,31 @@ public class PlayerBehaviour : MonoBehaviour
     Quaternion rotation;
 	void Update()
     {
-        // Faz o personagem olhar para o mouse
-        Debug.Log(holdingKey);
-        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(mousePosition.x, mousePosition.y), Vector2.zero, 0);
-        lookPosition = mousePosition - this.transform.position;
-        rotation = Quaternion.LookRotation(lookPosition);
-        rotation = new Quaternion(0f, 0f, rotation.z / 8, rotation.w / 8);
-        this.transform.rotation = rotation;
-        
+        ///Fazer o personagem rotacionar e mudar sua visão
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
+        }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+        {
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+        }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        {
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 270f);
+        }
+        else if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+        {
+            this.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+        if (movementHorizontal != 0 || movementVertical != 0)
+        {
+            this.GetComponent<Animator>().SetBool("IsWalking", true);
+        }
+        else
+        {
+            this.GetComponent<Animator>().SetBool("IsWalking", false);
+        }
     }
 	void FixedUpdate ()
     {
@@ -29,6 +47,10 @@ public class PlayerBehaviour : MonoBehaviour
         movementVertical = Input.GetAxis("Vertical");
 
         this.GetComponent<Rigidbody2D>().velocity = new Vector2(movementHorizontal * speed, movementVertical * speed); 
-
+    }
+    public void copClothes()
+    {
+        this.GetComponent<Animator>().runtimeAnimatorController = animController;
+        wearingCopClothes = true;
     }
 }

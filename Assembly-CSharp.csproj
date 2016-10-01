@@ -51,7 +51,9 @@
      <Compile Include="Assets\Script\ChavePickScript.cs" />
      <Compile Include="Assets\Script\Enemy2Behaviour.cs" />
      <Compile Include="Assets\Script\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Script\EnemyBehaviour3.cs" />
      <Compile Include="Assets\Script\EnemyVision2Script.cs" />
+     <Compile Include="Assets\Script\EnemyVision3Script.cs" />
      <Compile Include="Assets\Script\EnemyVisionScript.cs" />
      <Compile Include="Assets\Script\PlayerBehaviour.cs" />
  <Reference Include="UnityEngine.UI">
