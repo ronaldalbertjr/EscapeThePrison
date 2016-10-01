@@ -5,7 +5,7 @@ public class EnemyBehaviour : MonoBehaviour
 {
     public GameObject player;
     public Transform[] enemyPositions;
-    public bool followingEnemy = false;
+    public bool followingPlayer = false;
     Transform actualEnemyPosition;
     Transform goingToPosition;
     Quaternion rotation;
@@ -19,7 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
 	void Update ()
     {
         //Movimentacão do policial
-        if (!followingEnemy)
+        if (!followingPlayer)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.1f);
             this.transform.rotation = goingToPosition.rotation;
@@ -38,7 +38,7 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
         //Fazer o policial seguir o jogador
-        else if(followingEnemy)
+        else if(followingPlayer)
         {
             rotation = Quaternion.LookRotation(player.transform.position);
             rotation = new Quaternion(0f, 0f, rotation.z, rotation.w);

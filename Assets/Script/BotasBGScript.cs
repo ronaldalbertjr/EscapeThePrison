@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BotasBGScript : MonoBehaviour
 {
+    //Pegar as botas na sala secreta
     public GameObject player;
     void OnCollisionEnter2D(Collision2D col)
     {
