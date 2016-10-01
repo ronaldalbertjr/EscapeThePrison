@@ -18,7 +18,7 @@ public class EnemyBehaviour : MonoBehaviour
 	}
 	void Update ()
     {
-        //Movimentacão do policial e script para fazer o policial seguir o jogador
+        //Movimentacão do policial
         if (!followingEnemy)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.1f);
@@ -37,6 +37,7 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
         }
+        //Fazer o policial seguir o jogador
         else if(followingEnemy)
         {
             rotation = Quaternion.LookRotation(player.transform.position);
@@ -45,4 +46,12 @@ public class EnemyBehaviour : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
         }
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            Application.LoadLevel("MainScene");
+        }
+    }
 }

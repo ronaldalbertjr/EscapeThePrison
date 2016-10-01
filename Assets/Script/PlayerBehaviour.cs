@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerBehaviour : MonoBehaviour
 {
     public float speed;
+    public bool holdingKey;
     float movementHorizontal;
     float movementVertical;
     Vector3 mousePosition;
@@ -12,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour
 	void Update()
     {
         // Faz o personagem olhar para o mouse
-        
+        Debug.Log(holdingKey);
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(mousePosition.x, mousePosition.y), Vector2.zero, 0);
         lookPosition = mousePosition - this.transform.position;

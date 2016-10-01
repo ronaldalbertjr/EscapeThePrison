@@ -46,6 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\BGScript.cs" />
+     <Compile Include="Assets\Script\BotasBGScript.cs" />
+     <Compile Include="Assets\Script\ChavePickScript.cs" />
      <Compile Include="Assets\Script\EnemyBehaviour.cs" />
      <Compile Include="Assets\Script\EnemyVisionScript.cs" />
      <Compile Include="Assets\Script\PlayerBehaviour.cs" />
