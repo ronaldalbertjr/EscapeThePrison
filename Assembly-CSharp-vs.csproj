@@ -46,16 +46,23 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\BGScript.cs" />
-     <Compile Include="Assets\Script\BotasBGScript.cs" />
-     <Compile Include="Assets\Script\ChavePickScript.cs" />
-     <Compile Include="Assets\Script\Enemy2Behaviour.cs" />
-     <Compile Include="Assets\Script\EnemyBehaviour.cs" />
-     <Compile Include="Assets\Script\EnemyBehaviour3.cs" />
-     <Compile Include="Assets\Script\EnemyVision2Script.cs" />
-     <Compile Include="Assets\Script\EnemyVision3Script.cs" />
-     <Compile Include="Assets\Script\EnemyVisionScript.cs" />
+     <Compile Include="Assets\Script\Manager\BGScript.cs" />
+     <Compile Include="Assets\Script\Manager\CameraVision.cs" />
+     <Compile Include="Assets\Script\Manager\LoadScene.cs" />
+     <Compile Include="Assets\Script\Objects\BotasBGScript.cs" />
+     <Compile Include="Assets\Script\Objects\BotasPickScript.cs" />
+     <Compile Include="Assets\Script\Objects\ChavePickScript.cs" />
+     <Compile Include="Assets\Script\Objects\Note.cs" />
      <Compile Include="Assets\Script\PlayerBehaviour.cs" />
+     <Compile Include="Assets\Script\Policiais\Enemy2Behaviour.cs" />
+     <Compile Include="Assets\Script\Policiais\EnemyBehaviour.cs" />
+     <Compile Include="Assets\Script\Policiais\EnemyBehaviour3.cs" />
+     <Compile Include="Assets\Script\Policiais\EnemyVision2Script.cs" />
+     <Compile Include="Assets\Script\Policiais\EnemyVision3Script.cs" />
+     <Compile Include="Assets\Script\Policiais\EnemyVisionScript.cs" />
+     <Compile Include="Assets\Script\Rebeldes\DetentosVisionScript.cs" />
+     <Compile Include="Assets\Script\Rebeldes\Rebelde1Behaviour.cs" />
+     <Compile Include="Assets\Script\Rebeldes\RebeldesBehaviour.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
