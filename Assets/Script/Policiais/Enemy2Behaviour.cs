@@ -7,17 +7,25 @@ public class Enemy2Behaviour : MonoBehaviour
     public GameObject player;
     Quaternion rotation;
     public bool followingPlayer;
+	Transform my;
+	Rigidbody2D body;
     float time;
 
+	void Start()
+	{
+		my = this.GetComponent<Transform> ();
+		body = this.GetComponent<Rigidbody2D> ();
+	}
     //Comportamento do segundo policial
 	void Update ()
     {
         if(followingPlayer)
         {
+			Vector2 posiplayer = player.transform.position;
+			float AngleRad = Mathf.Atan2(-posiplayer.x + my.position.x, posiplayer.y - my.position.y);
+			float angle = (180 / Mathf.PI) * AngleRad;
+			this.body.rotation = angle;
 			this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
-            rotation = Quaternion.LookRotation(player.transform.position);
-            rotation = new Quaternion(0f, 0f, rotation.z, rotation.w);
-            this.transform.rotation = rotation;
         }
         else
         {
@@ -40,7 +48,7 @@ public class Enemy2Behaviour : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && !followingPlayer && Input.GetKey(KeyCode.Return))
+        if (col.gameObject.tag == "Player" && !followingPlayer && Input.GetKey(KeyCode.LeftAlt))
         {
             player.GetComponent<PlayerBehaviour>().copClothes();
 			player.GetComponent<PlayerBehaviour>().gotCopClothes = true;

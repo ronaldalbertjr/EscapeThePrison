@@ -5,7 +5,7 @@ public class Rebelde1Behaviour : MonoBehaviour
 {
 	public Transform[] rebeldePositions;
 	[HideInInspector] public bool followingPlayer;
-	private bool canWalk;
+	[HideInInspector] public bool canWalk;
 	Transform actualRebeldePosition;
 	Transform goingToPosition;
 	Quaternion rotation;
@@ -25,22 +25,15 @@ public class Rebelde1Behaviour : MonoBehaviour
 			this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.2f);
 			this.transform.rotation = goingToPosition.rotation;
 			if (this.transform.position == goingToPosition.position)
+			{
 				this.transform.position = rebeldePositions[2].position;
+                followingPlayer = true;
+			}
 		}
-		if(this.transform.position == rebeldePositions[2].position)
+		else if(this.transform.position == rebeldePositions[2].position)
 		{
 			canWalk = false;
 			this.GetComponent<Animator>().SetBool("IsWalking", false);
-		}
-	}
-
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		if(col.gameObject.tag == "Player")
-		{
-			canWalk = true;
-			this.GetComponent<Animator>().SetBool("IsWalking", true);
-            Destroy(this.gameObject.GetComponent<BoxCollider2D>());
 		}
 	}
 }

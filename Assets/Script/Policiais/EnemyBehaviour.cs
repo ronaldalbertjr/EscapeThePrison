@@ -8,11 +8,16 @@ public class EnemyBehaviour : MonoBehaviour
     public bool followingPlayer = false;
     Transform actualEnemyPosition;
     Transform goingToPosition;
+    Transform my;
+    Rigidbody2D body;
     Quaternion rotation;
     int counter;
+    [HideInInspector] public bool canSeePlayer;
 
     void Start()
     {
+        my = this.GetComponent<Transform>();
+        body = this.GetComponent<Rigidbody2D>();
         actualEnemyPosition = enemyPositions[0];
         goingToPosition = enemyPositions[1];
         counter = 2;
@@ -43,9 +48,10 @@ public class EnemyBehaviour : MonoBehaviour
         //Fazer o policial seguir o jogador
         else if(followingPlayer)
         {
-            rotation = Quaternion.LookRotation(player.transform.position);
-            rotation = new Quaternion(0f, 0f, rotation.z, rotation.w);
-            this.transform.rotation = rotation;
+            Vector2 posiplayer = player.transform.position;
+            float AngleRad = Mathf.Atan2(-posiplayer.x + my.position.x, posiplayer.y - my.position.y);
+            float angle = (180 / Mathf.PI) * AngleRad;
+            this.body.rotation = angle;
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
         }
 	}

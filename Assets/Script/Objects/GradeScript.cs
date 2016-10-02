@@ -6,10 +6,14 @@ public class GradeScript : MonoBehaviour
 	[SerializeField]	
 	private GameObject outraGrade;
 
+    [SerializeField]
+    private AudioSource audio;
+
 	void OnTriggerStay2D(Collider2D col)
     {
-        if(col.tag == "Player" && Input.GetKey(KeyCode.Return))
+        if(col.tag == "PrisioneiroAmigo")
         {
+            audio.Play();
             Destroy(this.gameObject);
 			Destroy(outraGrade);
         }

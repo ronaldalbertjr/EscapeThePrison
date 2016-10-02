@@ -13,9 +13,11 @@ public class PlayerBehaviour : MonoBehaviour
     Vector3 mousePosition;
     Vector3 lookPosition;
 	Quaternion rotation;
+	[SerializeField] private AudioSource audio;
 
 	void Start()
 	{
+        audio.Pause();
 		wearingBoots = false;
 		wearingCopClothes = false;
 		gotCopClothes = false;
@@ -53,10 +55,12 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (movementHorizontal != 0 || movementVertical != 0)
         {
+			audio.UnPause();
             this.GetComponent<Animator>().SetBool("IsWalking", true);
         }
         else
         {
+			audio.Pause();
             this.GetComponent<Animator>().SetBool("IsWalking", false);
         }
 
@@ -66,7 +70,7 @@ public class PlayerBehaviour : MonoBehaviour
 			copClothes();
 		if(gotCopClothes)
 		{
-			if(Input.GetKeyDown(KeyCode.Return))
+			if(Input.GetKeyDown(KeyCode.LeftShift))
 				wearingNormal = !wearingNormal;
 		}
     }
