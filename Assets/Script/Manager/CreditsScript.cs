@@ -14,10 +14,6 @@ public class CreditsScript : MonoBehaviour
 	void Update ()
     {
         time += Time.deltaTime;
-        foreach(Text i in texts)
-        {
-            i.GetComponent<RectTransform>().localPosition += new Vector3(0f, 0.5f);
-        }
         if(time > 10)
         {
             Application.LoadLevel("Menu");

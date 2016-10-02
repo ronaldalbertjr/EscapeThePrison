@@ -58,6 +58,7 @@
      <Compile Include="Assets\Script\Manager\HowToPlay.cs" />
      <Compile Include="Assets\Script\Manager\LoadScene.cs" />
      <Compile Include="Assets\Script\Manager\PauseScript.cs" />
+     <Compile Include="Assets\Script\ManagerScript.cs" />
      <Compile Include="Assets\Script\Objects\BotasBGScript.cs" />
      <Compile Include="Assets\Script\Objects\BotasPickScript.cs" />
      <Compile Include="Assets\Script\Objects\ChavePickScript.cs" />
