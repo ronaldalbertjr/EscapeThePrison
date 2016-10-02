@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Note : MonoBehaviour
 {
 	public Canvas note;
     bool canSee = false;
+	public Sprite openArmario;
+
 	void Start()
 	{
 		note.enabled = false;
@@ -15,6 +18,8 @@ public class Note : MonoBehaviour
         if(canSee && Input.GetKeyDown(KeyCode.Return))
         {
             note.enabled = true;
+			GetComponent<SpriteRenderer>().sprite = openArmario;
+			transform.localScale = new Vector3(1, 1, 1);
             canSee = false;
             Time.timeScale = 0;
         }
@@ -29,7 +34,7 @@ public class Note : MonoBehaviour
 	{
 		if(col.gameObject.tag == "Player")
 		{
-            canSee = true;
+			canSee = true;
 		}
 	}
     void OnCollisionExit2D(Collision2D col)
