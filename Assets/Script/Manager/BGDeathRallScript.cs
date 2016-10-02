@@ -41,6 +41,6 @@ public class BGDeathRallScript : MonoBehaviour
 
 	void OnTriggerExit2D(Collider2D col)
     {
-        Debug.Log("Venceu");
+        Application.LoadLevel("Creditos");
     }
 }

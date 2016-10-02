@@ -48,7 +48,7 @@ public class Enemy2Behaviour : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && !followingPlayer && Input.GetKey(KeyCode.LeftAlt))
+        if (col.gameObject.tag == "Player" && !followingPlayer && Input.GetKey(KeyCode.Return))
         {
             player.GetComponent<PlayerBehaviour>().copClothes();
 			player.GetComponent<PlayerBehaviour>().gotCopClothes = true;

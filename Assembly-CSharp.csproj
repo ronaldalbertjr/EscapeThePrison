@@ -56,7 +56,6 @@
      <Compile Include="Assets\Script\Manager\CameraScript.cs" />
      <Compile Include="Assets\Script\Manager\CameraVision.cs" />
      <Compile Include="Assets\Script\Manager\LoadScene.cs" />
-     <Compile Include="Assets\Script\Manager\PauseScript.cs" />
      <Compile Include="Assets\Script\Objects\BotasBGScript.cs" />
      <Compile Include="Assets\Script\Objects\BotasPickScript.cs" />
      <Compile Include="Assets\Script\Objects\ChavePickScript.cs" />
@@ -65,6 +64,7 @@
      <Compile Include="Assets\Script\Objects\GradeScript2.cs" />
      <Compile Include="Assets\Script\Objects\GradeScript3.cs" />
      <Compile Include="Assets\Script\Objects\Note.cs" />
+     <Compile Include="Assets\Script\PauseScript.cs" />
      <Compile Include="Assets\Script\PlayerBehaviour.cs" />
      <Compile Include="Assets\Script\Policiais\DeathRallCop.cs" />
      <Compile Include="Assets\Script\Policiais\Enemy2Behaviour.cs" />
@@ -77,7 +77,6 @@
      <Compile Include="Assets\Script\Rebeldes\DetentosVisionScript.cs" />
      <Compile Include="Assets\Script\Rebeldes\Rebelde1Behaviour.cs" />
      <Compile Include="Assets\Script\Rebeldes\RebeldesBehaviour.cs" />
-     <None Include="Assets\ProjectSettings\ProjectVersion.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

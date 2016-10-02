@@ -32,4 +32,11 @@ public class Note : MonoBehaviour
             canSee = true;
 		}
 	}
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Player")
+        {
+            canSee = false;
+        }
+    }
 }

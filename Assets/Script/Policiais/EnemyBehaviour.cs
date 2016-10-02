@@ -46,7 +46,7 @@ public class EnemyBehaviour : MonoBehaviour
             }
         }
         //Fazer o policial seguir o jogador
-        else if(followingPlayer)
+        else if(followingPlayer && canSeePlayer)
         {
             Vector2 posiplayer = player.transform.position;
             float AngleRad = Mathf.Atan2(-posiplayer.x + my.position.x, posiplayer.y - my.position.y);
