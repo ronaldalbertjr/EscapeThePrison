@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: belowBG
+    uniqueID: 1865475535
+    locked: 0
   - name: BG
     uniqueID: 798346823
     locked: 0

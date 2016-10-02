@@ -3,33 +3,33 @@ using System.Collections;
 
 public class Note : MonoBehaviour
 {
-	public GameObject note;
-	private float timer;
-	private bool canCount;
-
+	public Canvas note;
+    bool canSee = false;
 	void Start()
 	{
-		note.SetActive (false);
-		canCount = false;
+		note.enabled = false;
 	}
 	//Fazendo o bilhete aparecer e o jogador poder fechar apertando qualquer tecla depois de 3 segundos
 	void Update()
 	{
-		if(canCount)
-			timer += Time.deltaTime;
-		if(timer >= 3)
-		{
-			if (Input.anyKey)
-				note.SetActive (false);
-		}
+        if(canSee && Input.GetKeyDown(KeyCode.Return))
+        {
+            note.enabled = true;
+            canSee = false;
+            Time.timeScale = 0;
+        }
+        else if(!canSee && Input.anyKeyDown)
+        {
+            note.enabled = false;
+            Time.timeScale = 1;
+        }
 	}
 	
 	void OnCollisionEnter2D(Collision2D col)
 	{
 		if(col.gameObject.tag == "Player")
 		{
-			note.SetActive(true);
-			canCount = true;
+            canSee = true;
 		}
 	}
 }

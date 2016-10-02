@@ -22,7 +22,7 @@ public class Rebelde1Behaviour : MonoBehaviour
 	{
 		if(!followingPlayer && canWalk)
 		{
-			this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.1f);
+			this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.2f);
 			this.transform.rotation = goingToPosition.rotation;
 			if (this.transform.position == goingToPosition.position)
 				this.transform.position = rebeldePositions[2].position;
@@ -40,6 +40,7 @@ public class Rebelde1Behaviour : MonoBehaviour
 		{
 			canWalk = true;
 			this.GetComponent<Animator>().SetBool("IsWalking", true);
+            Destroy(this.gameObject.GetComponent<BoxCollider2D>());
 		}
 	}
 }
