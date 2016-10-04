@@ -9,7 +9,8 @@ public class Rebelde1Behaviour : MonoBehaviour
 	Transform actualRebeldePosition;
 	Transform goingToPosition;
 	Quaternion rotation;
-
+    [SerializeField]
+    private float speed;
 	void Start ()
 	{
 		followingPlayer = false;
@@ -22,7 +23,7 @@ public class Rebelde1Behaviour : MonoBehaviour
 	{
 		if(!followingPlayer && canWalk)
 		{
-			this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.2f);
+			this.transform.position = Vector3.MoveTowards(this.transform.position, goingToPosition.position, 0.2f * Time.deltaTime * speed);
 			this.transform.rotation = goingToPosition.rotation;
 			if (this.transform.position == goingToPosition.position)
 			{

@@ -26,7 +26,16 @@ public class PlayerBehaviour : MonoBehaviour
 
 	void Update()
     {
-		///Fazer o personagem rotacionar e mudar sua visão
+        if (wearingNormal)
+            normalClothes();
+        if (!wearingNormal)
+            copClothes();
+        if (gotCopClothes)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                wearingNormal = !wearingNormal;
+        }
+        ///Fazer o personagem rotacionar e mudar sua visão
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             this.transform.rotation = Quaternion.Euler(0f, 0f, 90f);
@@ -63,16 +72,6 @@ public class PlayerBehaviour : MonoBehaviour
 			audio.Pause();
             this.GetComponent<Animator>().SetBool("IsWalking", false);
         }
-
-		if (wearingNormal)
-			normalClothes ();
-		if(!wearingNormal)
-			copClothes();
-		if(gotCopClothes)
-		{
-			if(Input.GetKeyDown(KeyCode.LeftShift))
-				wearingNormal = !wearingNormal;
-		}
     }
 
 	void FixedUpdate ()
@@ -86,7 +85,6 @@ public class PlayerBehaviour : MonoBehaviour
 		}
 		else if(wearingBoots)
 		{
-			this.GetComponent<Animator>().runtimeAnimatorController = animBootsController;
 			this.GetComponent<Rigidbody2D>().velocity = new Vector2(movementHorizontal * moreSpeedFloat, movementVertical * moreSpeedFloat); 
 		}
 	}
@@ -95,7 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void copClothes()
     {
 		this.GetComponent<Animator>().runtimeAnimatorController = animController;
-		wearingCopClothes = true ;
+		wearingCopClothes = true;
 		wearingNormal = false;
 	}
 	

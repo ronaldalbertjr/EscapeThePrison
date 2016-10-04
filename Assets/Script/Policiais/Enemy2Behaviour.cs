@@ -17,7 +17,7 @@ public class Enemy2Behaviour : MonoBehaviour
 		body = this.GetComponent<Rigidbody2D> ();
 	}
     //Comportamento do segundo policial
-	void Update ()
+	void FixedUpdate ()
     {
         if(followingPlayer)
         {
@@ -25,7 +25,7 @@ public class Enemy2Behaviour : MonoBehaviour
 			float AngleRad = Mathf.Atan2(-posiplayer.x + my.position.x, posiplayer.y - my.position.y);
 			float angle = (180 / Mathf.PI) * AngleRad;
 			this.body.rotation = angle;
-			this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
+			this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
         }
         else
         {

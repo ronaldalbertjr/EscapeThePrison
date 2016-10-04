@@ -22,7 +22,7 @@ public class RebeldesBehaviour : MonoBehaviour
         body = this.GetComponent<Rigidbody2D>();
     }
 	//Fazedo os rebeldes seguirem
-	void Update()
+	void FixedUpdate()
 	{
 		if (followingPlayer)
 		{

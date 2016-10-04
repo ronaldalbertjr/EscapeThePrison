@@ -2595,6 +2595,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 152402128}
   - 212: {fileID: 152402129}
+  - 68: {fileID: 152402130}
   m_Layer: 0
   m_Name: tileset_piso_80
   m_TagString: Untagged
@@ -2640,6 +2641,20 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300002, guid: 3dec911e51953a2498eeb24b73813e1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!68 &152402130
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 152402127}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -1.86333036, y: 1.57999754}
+  - {x: 1.60000336, y: 1.57999289}
 --- !u!1 &153248053
 GameObject:
   m_ObjectHideFlags: 0
@@ -12216,6 +12231,7 @@ MonoBehaviour:
   - {fileID: 1406436057}
   followingPlayer: 0
   canWalk: 0
+  speed: 50
 --- !u!1 &838275442
 GameObject:
   m_ObjectHideFlags: 0
@@ -17292,8 +17308,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1216705259}
   m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
-  m_LocalPosition: {x: 3.94900322, y: -53.8252144, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 7.50746775}
+  m_LocalPosition: {x: 3.73000002, y: -53.9500008, z: 0}
+  m_LocalScale: {x: .929958642, y: .929958642, z: 6.98163462}
   m_Children: []
   m_Father: {fileID: 1239102123}
   m_RootOrder: 0
@@ -17327,6 +17343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0379b35cfb6ed343a83021cdecaccd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 50
 --- !u!61 &1218029464
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -24340,6 +24357,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1685407783}
   - 212: {fileID: 1685407784}
+  - 68: {fileID: 1685407785}
   m_Layer: 0
   m_Name: tileset_piso_79
   m_TagString: Untagged
@@ -24385,6 +24403,20 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300030, guid: 3dec911e51953a2498eeb24b73813e1f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!68 &1685407785
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1685407782}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  m_Points:
+  - {x: -1.56238091, y: -1.50475347}
+  - {x: 1.60000336, y: -1.54236472}
 --- !u!1 &1686755103
 GameObject:
   m_ObjectHideFlags: 0
@@ -29993,6 +30025,10 @@ Prefab:
       propertyPath: audio
       value: 
       objectReference: {fileID: 1954895407}
+    - target: {fileID: 9509880, guid: 632633dca1d18f140963a11c69d85cda, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 632633dca1d18f140963a11c69d85cda, type: 2}
   m_IsPrefabParent: 0

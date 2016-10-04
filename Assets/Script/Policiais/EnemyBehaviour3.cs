@@ -14,7 +14,7 @@ public class EnemyBehaviour3 : MonoBehaviour
         my = this.GetComponent<Transform>();
         body = this.GetComponent<Rigidbody2D>();
     }
-	void Update ()
+	void FixedUpdate ()
     {
 		if (followingPlayer)
         {

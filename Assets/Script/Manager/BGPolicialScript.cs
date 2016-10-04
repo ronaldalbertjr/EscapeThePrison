@@ -6,12 +6,18 @@ public class BGPolicialScript : MonoBehaviour
     public GameObject enemy;
     void OnTriggerEnter2D(Collider2D col)
     {
-        enemy.GetComponent<EnemyBehaviour>().canSeePlayer = true;
+        if (col.gameObject.tag == "Player")
+        {
+            enemy.GetComponent<EnemyBehaviour>().canSeePlayer = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        enemy.GetComponent<EnemyBehaviour>().canSeePlayer = false;
+        if (col.gameObject.tag == "Player")
+        {
+            enemy.GetComponent<EnemyBehaviour>().canSeePlayer = false;
+        }
     }
 	
 }
