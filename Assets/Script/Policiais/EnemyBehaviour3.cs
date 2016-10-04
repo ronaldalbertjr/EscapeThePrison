@@ -26,7 +26,7 @@ public class EnemyBehaviour3 : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player" && followingPlayer)
         {
