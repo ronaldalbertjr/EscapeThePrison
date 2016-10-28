@@ -22,7 +22,7 @@ public class EnemyBehaviour3 : MonoBehaviour
             float AngleRad = Mathf.Atan2(-posiplayer.x + my.position.x, posiplayer.y - my.position.y);
             float angle = (180 / Mathf.PI) * AngleRad;
             this.body.rotation = angle;
-            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.1f);
+            this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, 0.2f);
         }
     }
 

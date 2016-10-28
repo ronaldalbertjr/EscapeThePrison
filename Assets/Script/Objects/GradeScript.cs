@@ -13,9 +13,20 @@ public class GradeScript : MonoBehaviour
     {
         if(col.tag == "PrisioneiroAmigo")
         {
-            audio.Play();
-            Destroy(this.gameObject);
-			Destroy(outraGrade);
+            StartCoroutine(gradeMoving());
         }
     }
+    IEnumerator gradeMoving()
+    {
+        audio.Play();
+        for (int i = 0; i < 3; i++)
+        {
+            this.transform.position += new Vector3(0.1f, 0f);
+            outraGrade.transform.position -= new Vector3(0.1f, 0f);
+            yield return new WaitForSeconds(0.000001f);
+        }
+
+        yield return null;
+    }
+    
 }

@@ -11,8 +11,8 @@ public class GradeScript1 : MonoBehaviour
     {
         if (col.tag == "Player" && Input.GetKey(KeyCode.Return))
         {
-            Destroy(this.gameObject);
             audio.Play();
+            Destroy(this.gameObject);
             prisioneiro.GetComponent<Rebelde1Behaviour>().canWalk = true;
             prisioneiro.GetComponent<Animator>().SetBool("IsWalking", true);
         }

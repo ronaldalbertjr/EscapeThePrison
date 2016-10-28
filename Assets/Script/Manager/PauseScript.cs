@@ -16,14 +16,12 @@ public class PauseScript : MonoBehaviour
 	    if(Input.GetKey(KeyCode.Escape))
         {
             this.GetComponent<Canvas>().enabled = true;
-            Time.timeScale = 0;
         }
 	}
 
     public void OnVoltarAoJogoClick()
     {
         this.GetComponent<Canvas>().enabled = false;
-        Time.timeScale = 1;
     }
 
     public void OnVoltarAoMenuClick()
